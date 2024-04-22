@@ -21,7 +21,7 @@ async function main() {
         if (task.do === "add task") {
             let addTask = await inquirer.prompt([
                 {
-        name: "adod",
+        name: "add",
         type: "input",
         message: chalk.yellowBright.underline("\tAdd task here :\n\n"),
       },
@@ -40,11 +40,12 @@ async function main() {
     });
     let newTask = previousTask.filter((val) => val !== delTask.remove);
     previousTask = [...newTask];
-    console.log(chalk.yellow.underline("\n\tTask deleted!\n"))
+    console.log(chalk.yellow.underline("\n\tDeleted Successfully !\n"))
     main()
   
   } else if (task.do === "update task") {
-    let updateTask = await inquirer.prompt({
+    let updateTask = await inquirer.prompt(
+      {
       name: "update",
       type: "list",
       message: chalk.yellowBright.underline("\tWhat's you want to update ?..\n\n"),
